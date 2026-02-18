@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- PWA: Install as iOS Home Screen App -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Med Schools">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a3a5c">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAEc0lEQVR4nO3b63EbMQxFYVeQAlxKakl7KS5VMPHQo8iWsNoHyAuAB3MK0PJ+439+axxn3Jv6B3BxDxyceeD4cu8/f6l/QqBbBce/1X1Tf9CMK4vDXcOCVkrhmAyiPJT0OOQUCkPJikO++gpK8uGQz7wOkTQ45LsuqCQBDvmQyxIJjUM+3uJEguKQDwaRFhCHfCSI3C4QDvkwcVJP8XlRcMj3iJZ6kI/T45DPEDntNGIc8tePn3AdGQ75o+dKspEGh/ytMzZ/JgEO+SvnbfJSU3HIH7dG0/aah0P+ppWaM9kkHPLXrNeE1WbgkL9j1UYPNxyH/AVrN3S7gTjkD7dOgxYchUP+Xqs1YsQhOOQvtWbuO/rjkL/RyvlOCY5S+U7pjEP+OuS4picO+btQz2tQNxzyF6H7XDb1wSF/C3rs+qwOOOSvQFbgIDMxDvn303YyHPIvpz0JcMi/mfYHDjKbikP+tXS0STjk30nnAgeZDcch/0K60kAc8m873Y/ff3yTf9EEH+AAhwcO+VeBY7IPcIDjMg7594Bjvg9wgOMaDvmXXA8cj4EDHCNxyL/BJXA8DRwfgeNpl3DIf71X4LACBzjMwAEOs5M45L/bMXBsBA5wmB3GIf/FvoFjO3CAwwwc4DA7gEP+W90Dx8vAAQ4zcIDDDBzgMNuFQ/4rRwSOPYEDHGbgAIcZOMBh9gKH/PcNChw7Awc4zMABDjNwgMMMHOAwM3EU2y9vQXyAI2LgAAc4wAEOcIADHOAABzjAETNwgAMc4AAHOMABDnCAAxz3OLQ/CBxxcNx88JcjYhFkgCNo4AAHOMABDnCAAxzgAAc4wBEzcIADHOAABzjAAQ5wgAMc/K9s0v3GdY8BHOD4EjjAYQYOcJiBAxxmWziq+gDHnr5JAAc4/gcOcJiBAxxmr3GU9AGOlz0yAAc4PgMHOMzAAQ6zvTjq+QDHdk8NgAMcH4EDHGbHcBTzAY6NLADgAMcpHJV8gMNqY31wgAMc4DA6j6OMD3A8bXt6cIDjAo4aPsDx2MvdwQGOazgK+ADHURngAIcHjuw+wHFUBjjA4YQjtQ9wHJUBDnD44Ujtg96PyDiDAx95Ozo0OBZqBg58ZOzEyidx4CNX5yYGxxLNxoGPLJ3e9xIOfMTvyrhXceAjcheXBUfl9DjwEbPrs/rgaPgIlsumbjgaPsLkNagnjoaPADmu6Yyj4aOKjAaOYvlO6Y+j4aOEjDYIR8NHfhltHI6Gj+Qy2lAc/eQPV7uh2w3H0fCRU0abg6PhI6GMNg1Hw0c2GW0mjoaPVDLaZBz95I+bt8lLCXA0fGSQ0VQ4Gj7Cy2hCHP3kjx4/4TpiHA0fUWW0CDj6yWeIlnqQj4uCo+EjmIwWCkc/+TCwuF04HP3kIy3Ool9QHP3kgy3Lol9oHP3k4y3Iol8CHP3kQy7Fol8aHLeT71rexO3y4egnn7k2i35ZcdxOvno9E7dLj+P+5BQKgLi/UjjuDxDXryyOb4eGE7cKjp23yOo7DxyceeDgzPsL2TBOBXKhZ8IAAAAASUVORK5CYII=">
+    <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Sydney%27s%20Medical%20School%20Explorer%22%2C%22short_name%22%3A%22Med%20Schools%22%2C%22start_url%22%3A%22.%2FSydney_MedSchool_Explorer.html%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%231a3a5c%22%2C%22theme_color%22%3A%22%231a3a5c%22%2C%22orientation%22%3A%22portrait%22%7D">
+
+    <title>Sydney's Medical School Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: #1a3a5c;
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #b0d4ff;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Search section */
+        .search-section {
+            margin-bottom: 3rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+            border-color: #0ea5e9;
+        }
+
+        .search-results {
+            position: relative;
+        }
+
+        .result-count {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+            min-height: 1.3rem;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+        }
+
+        .dropdown.open {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f4f8;
+            transition: background-color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0f4f8;
+        }
+
+        .code-badge {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .dropdown-item-text {
+            flex: 1;
+        }
+
+        .dropdown-item-name {
+            font-weight: 500;
+            color: #1a3a5c;
+        }
+
+        .dropdown-item-location {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* School Profile Card */
+        .profile-card {
+            background-color: #f0f4f8;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: none;
+        }
+
+        .profile-card.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .profile-location {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .type-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .type-badge.public {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+
+        .type-badge.private {
+            background-color: #e9d5ff;
+            color: #6b21a8;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+
+        .warning-banner {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            color: #92400e;
+        }
+
+        .profile-notes {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .profile-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: #0ea5e9;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #1a3a5c;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0f2d47;
+            box-shadow: 0 4px 12px rgba(26, 58, 92, 0.3);
+        }
+
+        /* Loan Calculator */
+        .calculator-section {
+            background-color: #f0f4f8;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1a3a5c;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #0ea5e9;
+        }
+
+        .inflation-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .inflation-toggle input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .inflation-toggle label {
+            margin: 0;
+            font-weight: 500;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .btn-calculate {
+            width: 100%;
+            padding: 1rem;
+            background-color: #0ea5e9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-calculate:hover {
+            background-color: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid #0ea5e9;
+        }
+
+        .result-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a3a5c;
+        }
+
+        /* Repayment Table */
+        .repayment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .repayment-table th {
+            background-color: #1a3a5c;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .repayment-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .repayment-table tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .repayment-table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+
+        .repayment-row-5yr {
+            background-color: #fee2e2;
+        }
+
+        .repayment-row-10yr {
+            background-color: #fef3c7;
+        }
+
+        .repayment-row-15yr {
+            background-color: #dcfce7;
+        }
+
+        .repayment-row-20yr {
+            background-color: #dcfce7;
+        }
+
+        .repayment-row-25yr {
+            background-color: #dcfce7;
+        }
+
+        .repayment-row-warning {
+            background-color: #fee2e2;
+            font-weight: 600;
+            color: #991b1b;
+        }
+
+        .federal-warning {
+            background-color: #fee2e2;
+            border-left: 4px solid #dc2626;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            color: #7f1d1d;
+        }
+
+        .federal-warning strong {
+            color: #991b1b;
+        }
+
+        /* Key Notes & Federal Info */
+        .collapsible-section {
+            background-color: #f0f4f8;
+            border-radius: 12px;
+            padding: 0;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .collapsible-header {
+            background-color: #1a3a5c;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background-color: #0f2d47;
+        }
+
+        .collapsible-header::after {
+            content: "▼";
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-header.open::after {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .collapsible-content.open {
+            max-height: 2000px;
+            padding: 1.5rem;
+        }
+
+        .notes-list {
+            list-style: none;
+        }
+
+        .notes-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #ddd;
+            line-height: 1.7;
+        }
+
+        .notes-list li:last-child {
+            border-bottom: none;
+        }
+
+        .federal-info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .info-card-title {
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card-content {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .profile-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .federal-info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .repayment-table {
+                font-size: 0.9rem;
+            }
+
+            .repayment-table th,
+            .repayment-table td {
+                padding: 0.75rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .results-section {
+            display: none;
+        }
+
+        .results-section.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Sydney's Medical School Explorer 🩺</h1>
+        <p>Fall 2027 Application Planning</p>
+    </div>
+
+    <div class="container">
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-results">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search by school name or code (e.g. TAMU, Vanderbilt, UT...)"
+                    autocomplete="off"
+                >
+                <div class="result-count" id="resultCount"></div>
+                <div class="dropdown" id="dropdown"></div>
+            </div>
+        </div>
+
+        <!-- School Profile Card -->
+        <div class="profile-card" id="profileCard">
+            <div class="profile-header">
+                <div class="profile-name" id="profileName"></div>
+                <div class="profile-meta">
+                    <span class="code-badge" id="profileCode"></span>
+                    <span class="profile-location" id="profileLocation"></span>
+                    <span class="type-badge" id="profileType"></span>
+                </div>
+            </div>
+
+            <div id="tuitionWarning"></div>
+
+            <div class="profile-stats">
+                <div class="stat">
+                    <div class="stat-label">💰 In-State Tuition</div>
+                    <div class="stat-value" id="inStateTuition"></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">💰 Out-of-State Tuition</div>
+                    <div class="stat-value" id="outStateTuition"></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">🏠 Est. Living Costs</div>
+                    <div class="stat-value" id="livingCost"></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">📊 Median MCAT</div>
+                    <div class="stat-value" id="medianMCAT"></div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">📈 Median GPA</div>
+                    <div class="stat-value" id="medianGPA"></div>
+                </div>
+            </div>
+
+            <div id="profileNotesDiv"></div>
+
+            <div class="profile-buttons">
+                <button class="btn btn-primary" id="btnInStateLoan">Calculate In-State Loans</button>
+                <button class="btn btn-primary" id="btnOutStateLoan" style="display: none;">Calculate Out-of-State Loans</button>
+            </div>
+        </div>
+
+        <!-- Loan Calculator Section -->
+        <div class="calculator-section" id="calculatorSection">
+            <h2 class="section-title">Loan Cost Calculator</h2>
+            <p class="section-subtitle">Based on Direct Unsubsidized Loans (new July 2026 rules)</p>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="year1">Year 1 Tuition</label>
+                    <input type="text" id="year1" placeholder="$0.00" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="year2">Year 2 Tuition</label>
+                    <input type="text" id="year2" placeholder="$0.00" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="year3">Year 3 Tuition</label>
+                    <input type="text" id="year3" placeholder="$0.00" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="year4">Year 4 Tuition</label>
+                    <input type="text" id="year4" placeholder="$0.00" value="0">
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="interestRate">Annual Interest Rate (%)</label>
+                    <input type="text" id="interestRate" placeholder="7.94" value="7.94">
+                </div>
+                <div class="form-group">
+                    <label for="originationFee">Origination Fee (%)</label>
+                    <input type="text" id="originationFee" placeholder="1.057" value="1.057">
+                </div>
+            </div>
+
+            <div class="inflation-toggle">
+                <input type="checkbox" id="inflationCheckbox">
+                <label for="inflationCheckbox">Apply 3% annual inflation adjustment (for 2027 entry: Year 1: ×1.03², Year 2: ×1.03³, Year 3: ×1.03⁴, Year 4: ×1.03⁵)</label>
+            </div>
+
+            <button class="btn-calculate" id="calculateBtn">Calculate Loan Costs</button>
+
+            <!-- Results -->
+            <div class="results-section" id="resultsSection">
+                <h3 class="section-title" style="margin-top: 2rem;">Loan Calculation Results</h3>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-label">Total Tuition (4 Years)</div>
+                        <div class="result-value" id="totalTuition">$0.00</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Origination Fees Deducted</div>
+                        <div class="result-value" id="origFees">$0.00</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Net Loan Amount Received</div>
+                        <div class="result-value" id="netLoanAmount">$0.00</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Interest Accrued During School</div>
+                        <div class="result-value" id="interestAccrued">$0.00</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-label">Total Balance at Graduation</div>
+                        <div class="result-value" id="balanceAtGrad">$0.00</div>
+                    </div>
+                </div>
+
+                <div id="federalWarning"></div>
+
+                <h3 class="section-title" style="margin-top: 2rem;">Repayment Scenarios</h3>
+
+                <table class="repayment-table">
+                    <thead>
+                        <tr>
+                            <th>Plan</th>
+                            <th>Term</th>
+                            <th>Monthly Payment</th>
+                            <th>Total Paid</th>
+                            <th>Total Interest</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="repayment-row-5yr">
+                            <td>5-Year Aggressive</td>
+                            <td>5 years</td>
+                            <td id="payment5">$0.00</td>
+                            <td id="totalPaid5">$0.00</td>
+                            <td id="totalInt5">$0.00</td>
+                        </tr>
+                        <tr class="repayment-row-10yr">
+                            <td>10-Year Standard</td>
+                            <td>10 years</td>
+                            <td id="payment10">$0.00</td>
+                            <td id="totalPaid10">$0.00</td>
+                            <td id="totalInt10">$0.00</td>
+                        </tr>
+                        <tr class="repayment-row-15yr">
+                            <td>15-Year Extended</td>
+                            <td>15 years</td>
+                            <td id="payment15">$0.00</td>
+                            <td id="totalPaid15">$0.00</td>
+                            <td id="totalInt15">$0.00</td>
+                        </tr>
+                        <tr class="repayment-row-20yr">
+                            <td>20-Year Extended</td>
+                            <td>20 years</td>
+                            <td id="payment20">$0.00</td>
+                            <td id="totalPaid20">$0.00</td>
+                            <td id="totalInt20">$0.00</td>
+                        </tr>
+                        <tr class="repayment-row-25yr">
+                            <td>25-Year Maximum</td>
+                            <td>25 years</td>
+                            <td id="payment25">$0.00</td>
+                            <td id="totalPaid25">$0.00</td>
+                            <td id="totalInt25">$0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Key Notes -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">📋 Key Planning Notes</div>
+            <div class="collapsible-content">
+                <ul class="notes-list">
+                    <li><strong>Living Expenses:</strong> Room/board and other living expenses are NOT included in the loan calculations above — your parents will cover these.</li>
+                    <li><strong>Federal Loan Limit:</strong> Maximum $50,000/year and $200,000 total aggregate (new rules effective July 1, 2026).</li>
+                    <li><strong>Schools Exceeding Limits:</strong> If tuition exceeds federal limits, private loans will be needed (typically higher rates 6-12%, fewer protections).</li>
+                    <li><strong>Interest During School:</strong> Interest accrues during your 4 years in medical school — consider paying interest quarterly to significantly reduce total cost.</li>
+                    <li><strong>Grace Period:</strong> 6-month grace period after graduation before repayment begins, but interest continues to accrue during this period.</li>
+                    <li><strong>Income-Driven Repayment:</strong> Available but may result in higher total interest paid over time.</li>
+                    <li><strong>PSLF Consideration:</strong> Public Service Loan Forgiveness (PSLF) available if working for qualifying employers (government, 501(c)(3) nonprofits).</li>
+                    <li><strong>Tuition Inflation:</strong> Costs shown are 2024-2025 baseline; expect 3-5% annual increases through 2027-2030.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Federal Loan Info -->
+        <div class="collapsible-section">
+            <div class="collapsible-header" onclick="toggleCollapsible(this)">📊 Federal Loan Info</div>
+            <div class="collapsible-content">
+                <div class="federal-info-cards">
+                    <div class="info-card">
+                        <div class="info-card-title">Grad PLUS Loans</div>
+                        <div class="info-card-content">
+                            <strong>⚠️ ELIMINATED for new borrowers starting July 1, 2026</strong>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Direct Unsubsidized Loans</div>
+                        <div class="info-card-content">
+                            <strong>Annual Limit:</strong> $50,000/year<br>
+                            <strong>Aggregate Limit:</strong> $200,000 total
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Interest Rate (2025-2026)</div>
+                        <div class="info-card-content">
+                            <strong>7.94% fixed</strong>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Interest Rate (2026-2027)</div>
+                        <div class="info-card-content">
+                            <strong>TBD May 2026</strong><br>
+                            Estimated: 7.5-8.5%
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Origination Fee</div>
+                        <div class="info-card-content">
+                            <strong>1.057%</strong> deducted from disbursement
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Grace Period</div>
+                        <div class="info-card-content">
+                            <strong>6 months</strong> after graduation (interest still accrues)
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-title">Texas Public Schools</div>
+                        <div class="info-card-content">
+                            <strong>Strong recommendation:</strong> Most TX public schools have in-state tuition under $50,000/yr — best way to avoid private loans.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Embed school data
+        const SCHOOLS_DATA = [{"state":"Alabama","name":"University of Alabama at Birmingham Marnix E. Heersink School of Medicine","code":"UAB","city":"Birmingham","type":"Public","tuitionInState":40844,"tuitionOutOfState":71348,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Alabama","name":"Frederick P. Whiddon College of Medicine at the University of South Alabama","code":"USA","city":"Mobile","type":"Public","tuitionInState":39655,"tuitionOutOfState":74888,"livingCost":16000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Arizona","name":"ASU John Shufeldt School of Medicine and Medical Engineering","code":"ASU","city":"Tempe","type":"Public","tuitionInState":0,"tuitionOutOfState":0,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Arizona","name":"University of Arizona College of Medicine - Phoenix","code":"UAZPHX","city":"Phoenix","type":"Public","tuitionInState":44131,"tuitionOutOfState":63462,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Arizona","name":"University of Arizona College of Medicine - Tucson","code":"UAZTUC","city":"Tucson","type":"Public","tuitionInState":43790,"tuitionOutOfState":63443,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Arkansas","name":"Alice L. Walton School of Medicine","code":"WALTON","city":"Bentonville","type":"Private","tuitionInState":0,"tuitionOutOfState":0,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Arkansas","name":"University of Arkansas for Medical Sciences College of Medicine","code":"UAMS","city":"Little Rock","type":"Public","tuitionInState":42162,"tuitionOutOfState":76226,"livingCost":16000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"California Northstate University College of Medicine","code":"CNU","city":"Elk Grove","type":"Private","tuitionInState":81901,"tuitionOutOfState":81901,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"California University of Science and Medicine - School of Medicine","code":"CUSM","city":"Colton","type":"Private","tuitionInState":79982,"tuitionOutOfState":79982,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"Charles R. Drew University of Medicine and Science College of Medicine","code":"CDU","city":"Los Angeles","type":"Private","tuitionInState":76682,"tuitionOutOfState":76682,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"David Geffen School of Medicine at UCLA","code":"UCLA","city":"Los Angeles","type":"Public","tuitionInState":52763,"tuitionOutOfState":65008,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"Kaiser Permanente Bernard J. Tyson School of Medicine","code":"KPSOM","city":"Pasadena","type":"Private","tuitionInState":0,"tuitionOutOfState":0,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"Keck School of Medicine of the University of Southern California","code":"KECK","city":"Los Angeles","type":"Private","tuitionInState":79713,"tuitionOutOfState":79713,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"Loma Linda University School of Medicine","code":"LLU","city":"Loma Linda","type":"Private","tuitionInState":71832,"tuitionOutOfState":71832,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"Stanford University School of Medicine","code":"STANFORD","city":"Palo Alto","type":"Private","tuitionInState":79147,"tuitionOutOfState":79147,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"University of California, Davis School of Medicine","code":"UCD","city":"Davis","type":"Public","tuitionInState":56275,"tuitionOutOfState":68520,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"University of California, Irvine School of Medicine","code":"UCI","city":"Irvine","type":"Public","tuitionInState":50778,"tuitionOutOfState":63023,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"University of California, Riverside School of Medicine","code":"UCR","city":"Riverside","type":"Public","tuitionInState":47876,"tuitionOutOfState":60121,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"University of California, San Diego School of Medicine","code":"UCSD","city":"San Diego","type":"Public","tuitionInState":51776,"tuitionOutOfState":64021,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"California","name":"University of California, San Francisco School of Medicine","code":"UCSF","city":"San Francisco","type":"Public","tuitionInState":53441,"tuitionOutOfState":65686,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Colorado","name":"University of Colorado School of Medicine","code":"CU","city":"Denver","type":"Public","tuitionInState":52056,"tuitionOutOfState":78011,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Connecticut","name":"Frank H. Netter MD School of Medicine at Quinnipiac University","code":"QU","city":"North Haven","type":"Private","tuitionInState":70599,"tuitionOutOfState":70599,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Connecticut","name":"University of Connecticut School of Medicine","code":"UCONN","city":"Farmington","type":"Public","tuitionInState":52922,"tuitionOutOfState":81107,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Connecticut","name":"Yale School of Medicine","code":"YALE","city":"New Haven","type":"Private","tuitionInState":79346,"tuitionOutOfState":79346,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"District of Columbia","name":"George Washington University School of Medicine and Health Sciences","code":"GWU","city":"Washington","type":"Private","tuitionInState":77080,"tuitionOutOfState":77080,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"District of Columbia","name":"Georgetown University School of Medicine","code":"GTOWN","city":"Washington","type":"Private","tuitionInState":81130,"tuitionOutOfState":81130,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"District of Columbia","name":"Howard University College of Medicine","code":"HOWARD","city":"Washington","type":"Private","tuitionInState":62924,"tuitionOutOfState":62924,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"Charles E. Schmidt College of Medicine at Florida Atlantic University","code":"FAU","city":"Boca Raton","type":"Public","tuitionInState":34186,"tuitionOutOfState":70328,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"Florida International University Herbert Wertheim College of Medicine","code":"FIU","city":"Miami","type":"Public","tuitionInState":41816,"tuitionOutOfState":76314,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"Florida State University College of Medicine","code":"FSU","city":"Tallahassee","type":"Public","tuitionInState":30271,"tuitionOutOfState":68278,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"Nova Southeastern University Dr. Kiran C. Patel College of Allopathic Medicine","code":"NSU","city":"Fort Lauderdale","type":"Private","tuitionInState":78260,"tuitionOutOfState":78260,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"University of Central Florida College of Medicine","code":"UCF","city":"Orlando","type":"Public","tuitionInState":33236,"tuitionOutOfState":60110,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"University of Florida College of Medicine","code":"UF","city":"Gainesville","type":"Public","tuitionInState":39689,"tuitionOutOfState":51945,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"University of Miami Leonard M. Miller School of Medicine","code":"UM","city":"Miami","type":"Private","tuitionInState":61817,"tuitionOutOfState":61817,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Florida","name":"USF Health Morsani College of Medicine","code":"USF","city":"Tampa","type":"Public","tuitionInState":33726,"tuitionOutOfState":57036,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Georgia","name":"Emory University School of Medicine","code":"EMORY","city":"Atlanta","type":"Private","tuitionInState":65838,"tuitionOutOfState":65838,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Georgia","name":"Medical College of Georgia at Augusta University","code":"MCG","city":"Augusta","type":"Public","tuitionInState":35191,"tuitionOutOfState":67497,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Georgia","name":"Mercer University School of Medicine","code":"MERCER","city":"Macon","type":"Private","tuitionInState":48895,"tuitionOutOfState":0,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Georgia","name":"Morehouse School of Medicine","code":"MSM","city":"Atlanta","type":"Private","tuitionInState":65114,"tuitionOutOfState":65114,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Georgia","name":"University of Georgia School of Medicine","code":"UGA","city":"Athens","type":"Public","tuitionInState":0,"tuitionOutOfState":0,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Carle Illinois College of Medicine","code":"CARLE","city":"Urbana-Champaign","type":"Public","tuitionInState":57713,"tuitionOutOfState":70831,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Chicago Medical School at Rosalind Franklin University of Medicine and Science","code":"RFU","city":"North Chicago","type":"Private","tuitionInState":78543,"tuitionOutOfState":78543,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Loyola University Chicago Stritch School of Medicine","code":"LOYOLA","city":"Maywood","type":"Private","tuitionInState":76528,"tuitionOutOfState":76528,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Northwestern University Feinberg School of Medicine","code":"NWU","city":"Chicago","type":"Private","tuitionInState":82304,"tuitionOutOfState":82304,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Rush Medical College of Rush University Medical Center","code":"RUSH","city":"Chicago","type":"Private","tuitionInState":66238,"tuitionOutOfState":66238,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"Southern Illinois University School of Medicine","code":"SIU","city":"Springfield","type":"Public","tuitionInState":43901,"tuitionOutOfState":0,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"University of Chicago Division of the Biological Sciences, The Pritzker School of Medicine","code":"PRITZKER","city":"Chicago","type":"Private","tuitionInState":72082,"tuitionOutOfState":72082,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Illinois","name":"University of Illinois College of Medicine","code":"UICOM","city":"Chicago","type":"Public","tuitionInState":54545,"tuitionOutOfState":88445,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Indiana","name":"Indiana University School of Medicine","code":"IU","city":"Indianapolis","type":"Public","tuitionInState":45907,"tuitionOutOfState":73448,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Iowa","name":"University of Iowa Roy J. and Lucille A. Carver College of Medicine","code":"UIOWA","city":"Iowa City","type":"Public","tuitionInState":39313,"tuitionOutOfState":60712,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Kansas","name":"University of Kansas School of Medicine","code":"KU","city":"Kansas City","type":"Public","tuitionInState":43314,"tuitionOutOfState":73806,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Kentucky","name":"University of Kentucky College of Medicine","code":"UK","city":"Lexington","type":"Public","tuitionInState":42542,"tuitionOutOfState":77638,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Kentucky","name":"University of Louisville School of Medicine","code":"UL","city":"Louisville","type":"Public","tuitionInState":52631,"tuitionOutOfState":77939,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Louisiana","name":"Louisiana State University School of Medicine in Shreveport","code":"LSUS","city":"Shreveport","type":"Public","tuitionInState":33146,"tuitionOutOfState":66560,"livingCost":16000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Louisiana","name":"LSU Health Sciences Center School of Medicine in New Orleans","code":"LSUNO","city":"New Orleans","type":"Public","tuitionInState":40375,"tuitionOutOfState":68553,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Louisiana","name":"Tulane University School of Medicine","code":"TULANE","city":"New Orleans","type":"Private","tuitionInState":82790,"tuitionOutOfState":82790,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Maryland","name":"Johns Hopkins University School of Medicine","code":"JHU","city":"Baltimore","type":"Private","tuitionInState":72448,"tuitionOutOfState":72448,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Maryland","name":"Uniformed Services University of the Health Sciences, F. Edward H\u00e9bert School of Medicine","code":"USUHS","city":"Bethesda","type":"Public","tuitionInState":0,"tuitionOutOfState":0,"livingCost":0,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Maryland","name":"University of Maryland School of Medicine","code":"UMSOM","city":"Baltimore","type":"Public","tuitionInState":50582,"tuitionOutOfState":82906,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Massachusetts","name":"Boston University Aram V. Chobanian & Edward Avedisian School of Medicine","code":"BU","city":"Boston","type":"Private","tuitionInState":77607,"tuitionOutOfState":77607,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Massachusetts","name":"Harvard Medical School","code":"HMS","city":"Boston","type":"Private","tuitionInState":80729,"tuitionOutOfState":80729,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Massachusetts","name":"Tufts University School of Medicine","code":"TUFTS","city":"Boston","type":"Private","tuitionInState":78738,"tuitionOutOfState":78738,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Massachusetts","name":"University of Massachusetts T.H. Chan School of Medicine","code":"UMASS","city":"Worcester","type":"Public","tuitionInState":52752,"tuitionOutOfState":83178,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"Covenant HealthCare College of Medicine at Central Michigan University","code":"CMU","city":"Mount Pleasant","type":"Public","tuitionInState":47710,"tuitionOutOfState":70968,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"Michigan State University College of Human Medicine","code":"MSU","city":"East Lansing","type":"Public","tuitionInState":36864,"tuitionOutOfState":64688,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"Oakland University William Beaumont School of Medicine","code":"OUWB","city":"Rochester","type":"Private","tuitionInState":61484,"tuitionOutOfState":61484,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"University of Michigan Medical School","code":"UMICH","city":"Ann Arbor","type":"Public","tuitionInState":62934,"tuitionOutOfState":83772,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"Wayne State University School of Medicine","code":"WAYNE","city":"Detroit","type":"Public","tuitionInState":50468,"tuitionOutOfState":78717,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Michigan","name":"Western Michigan University Homer Stryker M.D. School of Medicine","code":"WMU","city":"Kalamazoo","type":"Private","tuitionInState":69800,"tuitionOutOfState":69800,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Minnesota","name":"Mayo Clinic Alix School of Medicine","code":"MAYO","city":"Rochester","type":"Private","tuitionInState":70084,"tuitionOutOfState":70084,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Minnesota","name":"University of Minnesota Medical School","code":"UMN","city":"Minneapolis","type":"Public","tuitionInState":48973,"tuitionOutOfState":71644,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Mississippi","name":"University of Mississippi School of Medicine","code":"OLEMISS","city":"Jackson","type":"Public","tuitionInState":42336,"tuitionOutOfState":0,"livingCost":16000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Missouri","name":"Saint Louis University School of Medicine","code":"SLU","city":"St. Louis","type":"Private","tuitionInState":72240,"tuitionOutOfState":72240,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Missouri","name":"University of Missouri-Columbia School of Medicine","code":"MIZZOU","city":"Columbia","type":"Public","tuitionInState":49786,"tuitionOutOfState":97328,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Missouri","name":"University of Missouri-Kansas City School of Medicine","code":"UMKC","city":"Kansas City","type":"Public","tuitionInState":48756,"tuitionOutOfState":92705,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Missouri","name":"Washington University in St. Louis School of Medicine","code":"WUSTL","city":"St. Louis","type":"Private","tuitionInState":74693,"tuitionOutOfState":74693,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Nebraska","name":"Creighton University School of Medicine","code":"CREIGH","city":"Omaha","type":"Private","tuitionInState":74628,"tuitionOutOfState":74628,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Nebraska","name":"University of Nebraska College of Medicine","code":"UNMC","city":"Omaha","type":"Public","tuitionInState":47153,"tuitionOutOfState":61629,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Nevada","name":"Kirk Kerkorian School of Medicine at UNLV","code":"UNLV","city":"Las Vegas","type":"Public","tuitionInState":42364,"tuitionOutOfState":75983,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Nevada","name":"Roseman University College of Medicine","code":"ROSEMAN","city":"Las Vegas","type":"Private","tuitionInState":0,"tuitionOutOfState":0,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Nevada","name":"University of Nevada, Reno School of Medicine","code":"UNR","city":"Reno","type":"Public","tuitionInState":43933,"tuitionOutOfState":72636,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Hampshire","name":"Geisel School of Medicine at Dartmouth","code":"DART","city":"Hanover","type":"Private","tuitionInState":79424,"tuitionOutOfState":79424,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Jersey","name":"Cooper Medical School of Rowan University","code":"COOPER","city":"Camden","type":"Public","tuitionInState":50830,"tuitionOutOfState":76932,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Jersey","name":"Hackensack Meridian School of Medicine","code":"HACKSOM","city":"Nutley","type":"Private","tuitionInState":84425,"tuitionOutOfState":84425,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Jersey","name":"Rutgers New Jersey Medical School","code":"RNJMS","city":"Newark","type":"Public","tuitionInState":52650,"tuitionOutOfState":81126,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Jersey","name":"Rutgers, Robert Wood Johnson Medical School","code":"RWJ","city":"Piscataway","type":"Public","tuitionInState":52458,"tuitionOutOfState":80934,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New Mexico","name":"University of New Mexico School of Medicine","code":"UNM","city":"Albuquerque","type":"Public","tuitionInState":24095,"tuitionOutOfState":52331,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Albany Medical College","code":"AMC","city":"Albany","type":"Private","tuitionInState":65689,"tuitionOutOfState":65689,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Albert Einstein College of Medicine","code":"EINSTEIN","city":"New York","type":"Private","tuitionInState":82697,"tuitionOutOfState":82697,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Columbia University Vagelos College of Physicians and Surgeons","code":"COLUMBIA","city":"New York","type":"Private","tuitionInState":82962,"tuitionOutOfState":82962,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"CUNY School of Medicine","code":"CUNY","city":"New York","type":"Public","tuitionInState":41911,"tuitionOutOfState":69571,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Donald and Barbara Zucker School of Medicine at Hofstra/Northwell","code":"ZUCKER","city":"Hempstead","type":"Private","tuitionInState":68648,"tuitionOutOfState":68648,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Icahn School of Medicine at Mount Sinai","code":"ICAHN","city":"New York","type":"Private","tuitionInState":83157,"tuitionOutOfState":0,"livingCost":29000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Jacobs School of Medicine and Biomedical Sciences at the University at Buffalo","code":"UB","city":"Buffalo","type":"Public","tuitionInState":49846,"tuitionOutOfState":74566,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"New York Medical College","code":"NYMC","city":"Valhalla","type":"Private","tuitionInState":77683,"tuitionOutOfState":77683,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"NYU Grossman School of Medicine","code":"NYU","city":"New York","type":"Private","tuitionInState":4350,"tuitionOutOfState":4350,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"NYU Grossman Long Island School of Medicine","code":"NYULI","city":"Mineola","type":"Private","tuitionInState":4350,"tuitionOutOfState":4350,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Renaissance School of Medicine at Stony Brook University","code":"SBU","city":"Stony Brook","type":"Public","tuitionInState":56659,"tuitionOutOfState":79309,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"State University of New York Upstate Medical University Alan and Marlene Norton College of Medicine","code":"UPSTATE","city":"Syracuse","type":"Public","tuitionInState":55404,"tuitionOutOfState":80124,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"SUNY Downstate Health Sciences University College of Medicine","code":"DOWNSTATE","city":"Brooklyn","type":"Public","tuitionInState":54852,"tuitionOutOfState":79572,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"University of Rochester School of Medicine and Dentistry","code":"ROCHESTER","city":"Rochester","type":"Private","tuitionInState":80570,"tuitionOutOfState":80570,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"New York","name":"Weill Cornell Medicine","code":"WEILL","city":"New York","type":"Private","tuitionInState":84386,"tuitionOutOfState":84386,"livingCost":30000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Carolina","name":"Brody School of Medicine at East Carolina University","code":"ECU","city":"Greenville","type":"Public","tuitionInState":28225,"tuitionOutOfState":59665,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Carolina","name":"Methodist University Cape Fear Valley Health School of Medicine","code":"MUCFV","city":"Fayetteville","type":"Private","tuitionInState":0,"tuitionOutOfState":0,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Carolina","name":"Duke University School of Medicine","code":"DUKE","city":"Durham","type":"Private","tuitionInState":78442,"tuitionOutOfState":78442,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Carolina","name":"University of North Carolina School of Medicine","code":"UNC","city":"Chapel Hill","type":"Public","tuitionInState":38646,"tuitionOutOfState":66971,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Carolina","name":"Wake Forest University School of Medicine","code":"WFU","city":"Winston-Salem","type":"Private","tuitionInState":71924,"tuitionOutOfState":71924,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"North Dakota","name":"University of North Dakota School of Medicine and Health Sciences","code":"UND","city":"Grand Forks","type":"Public","tuitionInState":40346,"tuitionOutOfState":70939,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"Boonshoft School of Medicine Wright State University","code":"WRIGHT","city":"Dayton","type":"Public","tuitionInState":52034,"tuitionOutOfState":79196,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"Case Western Reserve University School of Medicine","code":"CWRU","city":"Cleveland","type":"Private","tuitionInState":78526,"tuitionOutOfState":78526,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"Northeast Ohio Medical University College of Medicine","code":"NEOMED","city":"Rootstown","type":"Public","tuitionInState":56129,"tuitionOutOfState":102657,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"The Ohio State University College of Medicine","code":"OSU","city":"Columbus","type":"Public","tuitionInState":36120,"tuitionOutOfState":61040,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"University of Cincinnati College of Medicine","code":"UCINCY","city":"Cincinnati","type":"Public","tuitionInState":38469,"tuitionOutOfState":57327,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Ohio","name":"University of Toledo College of Medicine and Life Sciences","code":"UTOLEDO","city":"Toledo","type":"Public","tuitionInState":43498,"tuitionOutOfState":79327,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Oklahoma","name":"University of Oklahoma College of Medicine","code":"OU","city":"Oklahoma City","type":"Public","tuitionInState":39484,"tuitionOutOfState":74780,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Oregon","name":"Oregon Health & Science University School of Medicine","code":"OHSU","city":"Portland","type":"Public","tuitionInState":59642,"tuitionOutOfState":85950,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Drexel University College of Medicine","code":"DREXEL","city":"Philadelphia","type":"Private","tuitionInState":79275,"tuitionOutOfState":79275,"livingCost":27000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Geisinger Commonwealth School of Medicine","code":"GEISINGER","city":"Scranton","type":"Private","tuitionInState":70494,"tuitionOutOfState":77448,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Lewis Katz School of Medicine at Temple University","code":"TEMPLE","city":"Philadelphia","type":"Public","tuitionInState":60560,"tuitionOutOfState":64136,"livingCost":25000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Penn State College of Medicine","code":"PSU","city":"Hershey","type":"Public","tuitionInState":72975,"tuitionOutOfState":65771,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Raymond and Ruth Perelman School of Medicine at the University of Pennsylvania","code":"UPENN","city":"Philadelphia","type":"Private","tuitionInState":82153,"tuitionOutOfState":82153,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"Sidney Kimmel Medical College at Thomas Jefferson University","code":"TJU","city":"Philadelphia","type":"Private","tuitionInState":76368,"tuitionOutOfState":76368,"livingCost":26000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Pennsylvania","name":"University of Pittsburgh School of Medicine","code":"PITT","city":"Pittsburgh","type":"Public","tuitionInState":72250,"tuitionOutOfState":77526,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Rhode Island","name":"The Warren Alpert Medical School of Brown University","code":"BROWN","city":"Providence","type":"Private","tuitionInState":80037,"tuitionOutOfState":80037,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"South Carolina","name":"Medical University of South Carolina College of Medicine","code":"MUSC","city":"Charleston","type":"Public","tuitionInState":44989,"tuitionOutOfState":74104,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"South Carolina","name":"University of South Carolina School of Medicine, Columbia","code":"USCCOL","city":"Columbia","type":"Public","tuitionInState":48612,"tuitionOutOfState":92874,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"South Carolina","name":"University of South Carolina School of Medicine, Greenville","code":"USCGVL","city":"Greenville","type":"Public","tuitionInState":48692,"tuitionOutOfState":92954,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"South Dakota","name":"University of South Dakota Sanford School of Medicine","code":"USD","city":"Vermillion","type":"Public","tuitionInState":37526,"tuitionOutOfState":83656,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Tennessee","name":"East Tennessee State University James H. Quillen College of Medicine","code":"ETSU","city":"Johnson City","type":"Public","tuitionInState":42858,"tuitionOutOfState":53802,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Tennessee","name":"Meharry Medical College School of Medicine","code":"MEHARRY","city":"Nashville","type":"Private","tuitionInState":64987,"tuitionOutOfState":64987,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Tennessee","name":"Thomas F. Frist, Jr. College of Medicine at Belmont University","code":"BELMONT","city":"Nashville","type":"Private","tuitionInState":0,"tuitionOutOfState":0,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Tennessee","name":"University of Tennessee Health Science Center College of Medicine","code":"UTHSC","city":"Memphis","type":"Public","tuitionInState":43106,"tuitionOutOfState":62602,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Tennessee","name":"Vanderbilt University School of Medicine","code":"VANDY","city":"Nashville","type":"Private","tuitionInState":76877,"tuitionOutOfState":76877,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Anne Burnett Marion School of Medicine at TCU","code":"TCU","city":"Fort Worth","type":"Private","tuitionInState":72814,"tuitionOutOfState":72814,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Baylor College of Medicine School of Medicine","code":"BAYLOR","city":"Houston","type":"Private","tuitionInState":29697,"tuitionOutOfState":42793,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Dell Medical School \u2013 University of Texas at Austin","code":"DELLMED","city":"Austin","type":"Public","tuitionInState":26106,"tuitionOutOfState":41170,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"McGovern Medical School at UTHealth Houston","code":"MCGOV","city":"Houston","type":"Public","tuitionInState":29603,"tuitionOutOfState":37258,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Paul L. Foster School of Medicine Texas Tech University Health Sciences Center","code":"FOSTER","city":"El Paso","type":"Public","tuitionInState":26526,"tuitionOutOfState":41647,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Texas A&M University Naresh K. Vashisht College of Medicine","code":"TAMU","city":"College Station","type":"Public","tuitionInState":22998,"tuitionOutOfState":36098,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"Texas Tech University Health Sciences Center School of Medicine","code":"TTUHSC","city":"Lubbock","type":"Public","tuitionInState":26924,"tuitionOutOfState":40024,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"The University of Texas at San Antonio Joe R. and Teresa Lozano Long School of Medicine","code":"UTHSA","city":"San Antonio","type":"Public","tuitionInState":30236,"tuitionOutOfState":45652,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"The University of Texas at Tyler School of Medicine","code":"UTTYLER","city":"Tyler","type":"Public","tuitionInState":0,"tuitionOutOfState":0,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"University of Houston Tilman J. Fertitta Family College of Medicine","code":"UH","city":"Houston","type":"Public","tuitionInState":27726,"tuitionOutOfState":40826,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"University of Texas Medical Branch John Sealy School of Medicine","code":"UTMB","city":"Galveston","type":"Public","tuitionInState":30431,"tuitionOutOfState":45597,"livingCost":19000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"University of Texas Rio Grande Valley School of Medicine","code":"UTRGV","city":"Edinburg","type":"Public","tuitionInState":24970,"tuitionOutOfState":38070,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Texas","name":"University of Texas Southwestern Medical School","code":"UTSW","city":"Dallas","type":"Public","tuitionInState":28560,"tuitionOutOfState":41660,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Utah","name":"Spencer Fox Eccles School of Medicine at the University of Utah","code":"UU","city":"Salt Lake City","type":"Public","tuitionInState":52257,"tuitionOutOfState":94987,"livingCost":20000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Vermont","name":"Robert Larner, M.D. College of Medicine at the University of Vermont","code":"UVM","city":"Burlington","type":"Public","tuitionInState":44802,"tuitionOutOfState":75468,"livingCost":24000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Virginia","name":"Eastern Virginia Medical School at Old Dominion University","code":"EVMS","city":"Norfolk","type":"Public","tuitionInState":43506,"tuitionOutOfState":65832,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Virginia","name":"University of Virginia School of Medicine","code":"UVA","city":"Charlottesville","type":"Public","tuitionInState":59154,"tuitionOutOfState":73102,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Virginia","name":"Virginia Commonwealth University School of Medicine","code":"VCU","city":"Richmond","type":"Public","tuitionInState":45072,"tuitionOutOfState":70730,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Virginia","name":"Virginia Tech Carilion School of Medicine","code":"VTC","city":"Roanoke","type":"Public","tuitionInState":67597,"tuitionOutOfState":67597,"livingCost":21000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Washington","name":"University of Washington School of Medicine","code":"UW","city":"Seattle","type":"Public","tuitionInState":57968,"tuitionOutOfState":102319,"livingCost":28000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Washington","name":"Washington State University Elson S. Floyd College of Medicine","code":"WSU","city":"Spokane","type":"Public","tuitionInState":45012,"tuitionOutOfState":0,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"West Virginia","name":"Marshall University Joan C. Edwards School of Medicine","code":"MARSHALL","city":"Huntington","type":"Public","tuitionInState":27662,"tuitionOutOfState":62246,"livingCost":17000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"West Virginia","name":"West Virginia University School of Medicine","code":"WVU","city":"Morgantown","type":"Public","tuitionInState":40121,"tuitionOutOfState":77057,"livingCost":18000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Wisconsin","name":"Medical College of Wisconsin","code":"MCW","city":"Milwaukee","type":"Private","tuitionInState":73607,"tuitionOutOfState":77077,"livingCost":22000,"medianMCAT":null,"medianGPA":null,"notes":null},{"state":"Wisconsin","name":"University of Wisconsin School of Medicine and Public Health","code":"WISC","city":"Madison","type":"Public","tuitionInState":44392,"tuitionOutOfState":62514,"livingCost":23000,"medianMCAT":null,"medianGPA":null,"notes":null}];
+
+        let selectedSchool = null;
+        let currentDropdownIndex = -1;
+
+        // Initialize
+        document.getElementById('searchInput').addEventListener('input', handleSearch);
+        document.getElementById('searchInput').addEventListener('keydown', handleSearchKeydown);
+        document.addEventListener('click', handleDocumentClick);
+
+        document.getElementById('calculateBtn').addEventListener('click', calculateLoans);
+        document.getElementById('btnInStateLoan').addEventListener('click', () => {
+            if (selectedSchool) {
+                const amount = selectedSchool.tuitionInState;
+                if (amount > 0) {
+                    prefillTuition(amount);
+                    document.getElementById('calculatorSection').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+        
+        document.getElementById('btnOutStateLoan').addEventListener('click', () => {
+            if (selectedSchool) {
+                const amount = selectedSchool.tuitionOutOfState;
+                if (amount > 0) {
+                    prefillTuition(amount);
+                    document.getElementById('calculatorSection').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+
+        function handleSearch(e) {
+            const query = e.target.value.trim().toLowerCase();
+            const dropdown = document.getElementById('dropdown');
+            const resultCount = document.getElementById('resultCount');
+
+            if (query.length === 0) {
+                dropdown.classList.remove('open');
+                resultCount.textContent = '';
+                return;
+            }
+
+            const filtered = SCHOOLS_DATA.filter(school => {
+                const nameMatch = school.name.toLowerCase().includes(query);
+                const codeMatch = school.code.toLowerCase().includes(query);
+                const stateMatch = school.state.toLowerCase().includes(query);
+                const cityMatch = school.city.toLowerCase().includes(query);
+                return nameMatch || codeMatch || stateMatch || cityMatch;
+            });
+
+            resultCount.textContent = filtered.length > 0 ? `${filtered.length} result${filtered.length !== 1 ? 's' : ''} found` : 'No schools found';
+
+            const topResults = filtered.slice(0, 10);
+            dropdown.innerHTML = topResults.map((school, idx) => `
+                <div class="dropdown-item" data-index="${idx}">
+                    <span class="code-badge">${school.code}</span>
+                    <div class="dropdown-item-text">
+                        <div class="dropdown-item-name">${school.name}</div>
+                        <div class="dropdown-item-location">${school.city}, ${school.state}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            const items = dropdown.querySelectorAll('.dropdown-item');
+            items.forEach(item => {
+                item.addEventListener('click', (e) => selectSchool(filtered[parseInt(item.dataset.index)]));
+            });
+
+            dropdown.classList.add('open');
+            currentDropdownIndex = -1;
+        }
+
+        function handleSearchKeydown(e) {
+            const dropdown = document.getElementById('dropdown');
+            if (!dropdown.classList.contains('open')) return;
+
+            const items = dropdown.querySelectorAll('.dropdown-item');
+            if (items.length === 0) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                currentDropdownIndex = Math.min(currentDropdownIndex + 1, items.length - 1);
+                updateDropdownHighlight(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                currentDropdownIndex = Math.max(currentDropdownIndex - 1, -1);
+                updateDropdownHighlight(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (currentDropdownIndex >= 0) {
+                    items[currentDropdownIndex].click();
+                }
+            } else if (e.key === 'Escape') {
+                dropdown.classList.remove('open');
+            }
+        }
+
+        function updateDropdownHighlight(items) {
+            items.forEach((item, idx) => {
+                if (idx === currentDropdownIndex) {
+                    item.style.backgroundColor = '#e0f2fe';
+                } else {
+                    item.style.backgroundColor = '';
+                }
+            });
+        }
+
+        function handleDocumentClick(e) {
+            if (!e.target.closest('.search-results')) {
+                document.getElementById('dropdown').classList.remove('open');
+            }
+        }
+
+        function selectSchool(school) {
+            selectedSchool = school;
+            document.getElementById('searchInput').value = '';
+            document.getElementById('dropdown').classList.remove('open');
+            document.getElementById('resultCount').textContent = '';
+
+            // Display profile
+            const profileCard = document.getElementById('profileCard');
+            profileCard.classList.add('show');
+
+            document.getElementById('profileName').textContent = school.name;
+            document.getElementById('profileCode').textContent = school.code;
+            document.getElementById('profileLocation').textContent = `${school.city}, ${school.state}`;
+            
+            const typeEl = document.getElementById('profileType');
+            typeEl.textContent = school.type;
+            typeEl.classList.remove('public', 'private');
+            typeEl.classList.add(school.type.toLowerCase());
+
+            // Tuition
+            document.getElementById('inStateTuition').textContent = school.tuitionInState > 0 ? `$${school.tuitionInState.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/yr` : 'N/A';
+            document.getElementById('outStateTuition').textContent = school.tuitionOutOfState > 0 ? `$${school.tuitionOutOfState.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/yr` : 'N/A';
+            document.getElementById('livingCost').textContent = `$${school.livingCost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/yr`;
+
+            // MCAT and GPA
+            document.getElementById('medianMCAT').textContent = school.medianMCAT ? school.medianMCAT.toString() : 'Data not available';
+            document.getElementById('medianGPA').textContent = school.medianGPA ? school.medianGPA.toString() : 'Data not available';
+
+            // Tuition warning
+            const warningDiv = document.getElementById('tuitionWarning');
+            if (school.tuitionInState > 50000 || school.tuitionOutOfState > 50000) {
+                const maxTuition = Math.max(school.tuitionInState, school.tuitionOutOfState);
+                warningDiv.innerHTML = `
+                    <div class="warning-banner">
+                        ⚠️ Tuition exceeds federal loan limit of $50,000/yr — private loans may be needed
+                    </div>
+                `;
+            } else {
+                warningDiv.innerHTML = '';
+            }
+
+            // Notes
+            const notesDiv = document.getElementById('profileNotesDiv');
+            if (school.notes) {
+                notesDiv.innerHTML = `<div class="profile-notes">${school.notes}</div>`;
+            } else {
+                notesDiv.innerHTML = '';
+            }
+
+            // Show/hide buttons
+            const btnIn = document.getElementById('btnInStateLoan');
+            const btnOut = document.getElementById('btnOutStateLoan');
+            btnIn.style.display = school.tuitionInState > 0 ? 'inline-block' : 'none';
+            btnOut.style.display = school.tuitionOutOfState > 0 ? 'inline-block' : 'none';
+
+            // Reset calculator
+            document.getElementById('resultsSection').classList.remove('show');
+            document.getElementById('inflationCheckbox').checked = false;
+
+            // Scroll into view
+            profileCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function prefillTuition(amount) {
+            document.getElementById('year1').value = amount;
+            document.getElementById('year2').value = amount;
+            document.getElementById('year3').value = amount;
+            document.getElementById('year4').value = amount;
+        }
+
+        function parseInputAmount(value) {
+            return parseFloat(value.toString().replace(/[^0-9.-]/g, '')) || 0;
+        }
+
+        function calculateLoans() {
+            // Get inputs
+            let year1 = parseInputAmount(document.getElementById('year1').value);
+            let year2 = parseInputAmount(document.getElementById('year2').value);
+            let year3 = parseInputAmount(document.getElementById('year3').value);
+            let year4 = parseInputAmount(document.getElementById('year4').value);
+            
+            const interestRate = parseInputAmount(document.getElementById('interestRate').value) / 100;
+            const originationFeeRate = parseInputAmount(document.getElementById('originationFee').value) / 100;
+            const applyInflation = document.getElementById('inflationCheckbox').checked;
+
+            // Apply inflation if checked
+            if (applyInflation) {
+                year1 = year1 * Math.pow(1.03, 2);
+                year2 = year2 * Math.pow(1.03, 3);
+                year3 = year3 * Math.pow(1.03, 4);
+                year4 = year4 * Math.pow(1.03, 5);
+            }
+
+            // Calculate totals
+            const totalTuition = year1 + year2 + year3 + year4;
+            const originationFees = totalTuition * originationFeeRate;
+            const netLoanAmount = totalTuition - originationFees;
+
+            // Interest accrued during school
+            const r = interestRate;
+            const interestAccrued = year1 * (Math.pow(1 + r, 3.5) - 1) + 
+                                    year2 * (Math.pow(1 + r, 2.5) - 1) + 
+                                    year3 * (Math.pow(1 + r, 1.5) - 1) + 
+                                    year4 * (Math.pow(1 + r, 0.5) - 1);
+
+            const balanceAtGrad = netLoanAmount + interestAccrued;
+
+            // Display results
+            document.getElementById('totalTuition').textContent = `$${totalTuition.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('origFees').textContent = `$${originationFees.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('netLoanAmount').textContent = `$${netLoanAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('interestAccrued').textContent = `$${interestAccrued.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('balanceAtGrad').textContent = `$${balanceAtGrad.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+            // Federal warning
+            const maxYearTuition = Math.max(year1, year2, year3, year4);
+            const warningDiv = document.getElementById('federalWarning');
+            if (maxYearTuition > 50000) {
+                const diff = maxYearTuition - 50000;
+                warningDiv.innerHTML = `
+                    <div class="federal-warning">
+                        <strong>⚠️ Federal Loan Limit Warning:</strong> Tuition of $${maxYearTuition.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} exceeds the $50,000/yr federal Direct Unsubsidized Loan limit. Private loans may be needed for the difference of $${diff.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}/yr. Private loans typically have higher rates (6-12%) and fewer protections.
+                    </div>
+                `;
+            } else {
+                warningDiv.innerHTML = '';
+            }
+
+            // Repayment scenarios
+            const scenarios = [
+                { years: 5, id: '5' },
+                { years: 10, id: '10' },
+                { years: 15, id: '15' },
+                { years: 20, id: '20' },
+                { years: 25, id: '25' }
+            ];
+
+            scenarios.forEach(scenario => {
+                const payment = calculatePMT(balanceAtGrad, interestRate, scenario.years);
+                const totalPaid = payment * 12 * scenario.years;
+                const totalInterest = totalPaid - balanceAtGrad;
+
+                document.getElementById(`payment${scenario.id}`).textContent = `$${payment.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                document.getElementById(`totalPaid${scenario.id}`).textContent = `$${totalPaid.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                document.getElementById(`totalInt${scenario.id}`).textContent = `$${totalInterest.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            });
+
+            document.getElementById('resultsSection').classList.add('show');
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculatePMT(principal, annualRate, years) {
+            const monthlyRate = annualRate / 12;
+            const numPayments = years * 12;
+            if (monthlyRate === 0) {
+                return principal / numPayments;
+            }
+            return (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -numPayments));
+        }
+
+        function toggleCollapsible(header) {
+            header.classList.toggle('open');
+            const content = header.nextElementSibling;
+            content.classList.toggle('open');
+        }
+    </script>
+
+    <!-- Service Worker for offline support (requires HTTPS hosting) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(reg) {
+                    console.log('ServiceWorker registered:', reg.scope);
+                }).catch(function(err) {
+                    console.log('ServiceWorker registration skipped (needs hosting):', err);
+                });
+            });
+        }
+
+        // iOS standalone detection — hide install banner if already installed
+        if (window.navigator.standalone) {
+            document.documentElement.classList.add('pwa-standalone');
+        }
+
+        // Show install prompt for iOS if not already in standalone mode
+        window.addEventListener('DOMContentLoaded', function() {
+            const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+            const isStandalone = window.navigator.standalone;
+            if (isIOS && !isStandalone) {
+                const banner = document.createElement('div');
+                banner.id = 'install-banner';
+                banner.style.cssText = `
+                    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+                    background: #1a3a5c; color: white; padding: 14px 20px;
+                    display: flex; align-items: center; gap: 12px;
+                    font-family: -apple-system, Inter, sans-serif; font-size: 13px;
+                    box-shadow: 0 -2px 12px rgba(0,0,0,0.3);
+                `;
+                banner.innerHTML = \`
+                    <span style="font-size:22px">📲</span>
+                    <div style="flex:1">
+                        <strong>Install on your iPhone!</strong><br>
+                        Tap <strong>Share</strong> → <strong>"Add to Home Screen"</strong> to install this app
+                    </div>
+                    <button onclick="document.getElementById('install-banner').remove()"
+                        style="background:none;border:1px solid rgba(255,255,255,0.5);color:white;
+                        border-radius:6px;padding:6px 10px;cursor:pointer;font-size:12px">✕ Dismiss</button>
+                \`;
+                document.body.appendChild(banner);
+            }
+        });
+    </script>
+
+</body>
+</html>
